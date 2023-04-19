@@ -1,0 +1,51 @@
+body {
+  background-image: url(./images/background\ img.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  border-radius: 50%; /* Arrondi le bouton à 50% de sa largeur/hauteur pour le rendre rond */
+  width: 20%; /* Défini la largeur et la hauteur du bouton */
+  height: 20%;
+}
+
+.button.is-large.purple {
+  background-color: purple;
+}
+
+.button.is-large.black {
+  background-color: black;
+}
+
+.button.is-large.green {
+  background-color: green;
+}
+
+.button.is-large.blue {
+  background-color: blue;
+}
+
+.button.is-large.yellow {
+  background-color: rgb(243, 243, 32);
+}
+
+.button.is-large.red {
+  background-color: red;
+}
+
+.button.is-large.marques {
+  background-color: white;
+}
+
+.button.is-large.total {
+  background-color: gold;
+}
