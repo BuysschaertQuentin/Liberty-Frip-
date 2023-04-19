@@ -9,8 +9,7 @@ function addPrice(id, price) {
     e.preventDefault();
     total += price;
     const result = document.getElementById('8');
-    result.innerHTML = `${total} €`;
-    console.log(total);
+    result.textContent = `${total} €`;
   });
 }
 function addPriceToChoose() {
@@ -19,7 +18,6 @@ function addPriceToChoose() {
     let price = prompt("Veuillez entrer le prix de l'article");
     if (price !== null && price !== '' && !isNaN(price)) {
       total += parseInt(price);
-      console.log(total);
       const resultButton = document.getElementById('8');
       resultButton.innerHTML = `${total} €`;
     } else if (price !== null && price !== '') {
@@ -33,9 +31,16 @@ function displayTotal() {
     if (total === 0) {
       alert("Vous n'avez pas d'article");
     } else {
-      turnOver.push(button.textContent);
+      turnOver.push(parseInt(button.textContent));
       console.log(turnOver);
       button.textContent = total -= total;
+      let turnOverTotal = 0;
+      turnOver.forEach(value => {
+        turnOverTotal += value;
+      });
+      const turnOverDiv = document.querySelector('.turnhover');
+      turnOverDiv.textContent = '';
+      turnOverDiv.textContent = `Le chiffre d'affaire est de : ${turnOverTotal}€`;
     }
   });
 }
