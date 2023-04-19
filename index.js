@@ -1,15 +1,30 @@
 const arrayPrice = [2, 3, 4, 5, 8, 10];
-
+const pathOfImg = [
+  `<img src="/images/accessoire.png">`,
+  `<img src="/images/tshirt.png"`,
+  `<img src="/images/jupe.png">`,
+  `<img src="/images/marque.png">`,
+  `<img src="/images/sac.png">`,
+  `<img src="/images/manteau.png">`,
+  `<img src="/images/robe.png">`,
+  `<img src="/images/total.png">`,
+];
 let total = 0;
 let turnOver = [];
 
 function addPrice(id, price) {
   const button = document.getElementById(`${id}`);
-  button.addEventListener('click', e => {
-    e.preventDefault();
+  button.addEventListener('click', () => {
     total += price;
+    let numberOfArticles = 0;
+    numberOfArticles++;
+    button.textContent = `${numberOfArticles}`;
+    button.style.fontSize = 'xx-large';
+    button.innerHTML = `${numberOfArticles} ${pathOfImg[id - 1]}`;
     const result = document.getElementById('8');
     result.textContent = `${total} €`;
+    result.style.fontSize = 'xx-large';
+    result.innerHTML = `${total} € ${pathOfImg[6]}`;
   });
 }
 function addPriceToChoose() {
@@ -64,9 +79,7 @@ addPrice(4, arrayPrice[3]);
 addPrice(5, arrayPrice[4]);
 addPrice(6, arrayPrice[5]);
 
-// - les boutons dépassent de leurs cercle (a cause de l'image)  URGENT !!!!
 // - quand tu appuie sur un boutons cele retire l'image TOTAL
-
 // À prévoir absolument :
 
 // 2) afficher le nombre de clics déjà faits sur chaque bouton, en police 150 000, histoire que ça soit bien visible.

@@ -83,6 +83,7 @@ button img {
 
 button p {
   text-transform: uppercase;
+  font-size: x-large;
 }
 
 .button-push {
@@ -104,6 +105,10 @@ footer {
   align-items: center;
   flex-direction: column;
   margin-bottom: 2rem;
+}
+
+img {
+  pointer-events: none;
 }
 
 @media only screen and (max-width: 600px) {
