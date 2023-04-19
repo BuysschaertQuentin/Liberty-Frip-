@@ -5,10 +5,8 @@
 body {
   display: flex;
   flex-direction: column;
-  
+  justify-content: space-between;
   background-image: url('/images/bg.svg');
-  background-size: cover;
-  background-position: center;
 }
 
 body,
@@ -21,12 +19,15 @@ html {
 main {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  margin: 5rem;
 }
 
 .button-container {
   display: flex;
   flex-wrap: wrap;
-  width: 1400px;
+  width: 1600px;
+  gap: 5rem;
 }
 
 button {
@@ -38,33 +39,53 @@ button {
 }
 
 .purple {
-  background-color: purple;
+  background-color: #DCA2ED;
+  transform: translateY(40px);
 }
 
 .black {
-  background-color: black;
+  background-color: #545454;
 }
 
 .green {
-  background-color: green;
+  background-color: #7ED957;
+  transform: translateY(-40px);
 }
 
 .blue {
-  background-color: blue;
+  background-color: #0CC0DF;
 }
 
 .yellow {
-  background-color: rgb(243, 243, 32);
+  background-color: #FFBD59;
+  transform: translateY(50px);
 }
 
 .red {
-  background-color: red;
+  background-color: #FF5757;
 }
 
 .marques {
   background-color: white;
+  transform: translateY(-50px);
 }
 
 .total {
   background-color: gold;
+  transform: translateX(100px);
+}
+
+button p {
+  text-transform: uppercase;
+}
+
+.button-container button p {
+  border-radius: 10px;
+}
+
+
+footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
