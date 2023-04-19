@@ -1,12 +1,11 @@
-* {
-  border: 1px red solid;
-}
+
 
 body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-image: url('/images/bg.svg');
+  background-size: cover;
 }
 
 body,
@@ -20,7 +19,7 @@ main {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 5rem;
+  margin-top: 10rem;
 }
 
 .button-container {
@@ -36,11 +35,21 @@ button {
   min-height: 300px;
   max-width: 300px;
   max-height: 300px;
+  border: none;
+  position: relative;
 }
 
 .purple {
   background-color: #DCA2ED;
   transform: translateY(40px);
+  
+}
+
+button img {
+  position: absolute;
+  top: 2px;
+  left: 15px;
+  transform: scale(1.6);
 }
 
 .black {
@@ -79,13 +88,9 @@ button p {
   text-transform: uppercase;
 }
 
-.button-container button p {
-  border-radius: 10px;
-}
-
-
 footer {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
