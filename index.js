@@ -1,7 +1,7 @@
 const arrayPrice = [2, 3, 4, 5, 8, 10];
 const pathOfImg = [
   `<img src="/images/accessoire.png">`,
-  `<img src="/images/tshirt.png"`,
+  `<img src="/images/tshirt.png">`,
   `<img src="/images/jupe.png">`,
   `<img src="/images/marque.png">`,
   `<img src="/images/sac.png">`,
@@ -9,24 +9,36 @@ const pathOfImg = [
   `<img src="/images/robe.png">`,
   `<img src="/images/total.png">`,
 ];
+const numberOfArticles = [];
 let total = 0;
 let turnOver = [];
 
 function addPrice(id, price) {
   const button = document.getElementById(`${id}`);
+  console.log(button);
   button.addEventListener('click', () => {
     total += price;
-    let numberOfArticles = 0;
-    numberOfArticles++;
-    button.textContent = `${numberOfArticles}`;
-    button.style.fontSize = 'xx-large';
-    button.innerHTML = `${numberOfArticles} ${pathOfImg[id - 1]}`;
     const result = document.getElementById('8');
     result.textContent = `${total} €`;
-    result.style.fontSize = 'xx-large';
-    result.innerHTML = `${total} € ${pathOfImg[6]}`;
+    result.style.fontSize = '6rem';
+    result.innerHTML = `${total} € ${pathOfImg[7]}`;
   });
 }
+
+function addNumberofArticles(id) {
+  numberOfArticles.push(0);
+  const button = document.getElementById(`${id}`);
+  button.addEventListener('click', () => {
+    numberOfArticles[id - 1]++;
+    const updatedValue = numberOfArticles[id - 1];
+    button.textContent = `${updatedValue}`;
+    button.style.fontSize = '6rem';
+    if (id !== 4) {
+      button.innerHTML = `${updatedValue} ${pathOfImg[id - 1]}`;
+    }
+  });
+}
+
 function addPriceToChoose() {
   const button = document.querySelector('.marques');
   button.addEventListener('click', () => {
@@ -78,6 +90,13 @@ addPrice(3, arrayPrice[2]);
 addPrice(4, arrayPrice[3]);
 addPrice(5, arrayPrice[4]);
 addPrice(6, arrayPrice[5]);
+
+addNumberofArticles(1);
+addNumberofArticles(2);
+addNumberofArticles(3);
+addNumberofArticles(4);
+addNumberofArticles(5);
+addNumberofArticles(6);
 
 // - quand tu appuie sur un boutons cele retire l'image TOTAL
 // À prévoir absolument :

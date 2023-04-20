@@ -28,8 +28,8 @@ main {
 }
 
 button {
-  border-radius: 50%; /* Arrondi le bouton à 50% de sa largeur/hauteur pour le rendre rond */
-  min-width: 300px; /* Défini la largeur et la hauteur du bouton */
+  border-radius: 50%;
+  min-width: 300px;
   min-height: 300px;
   max-width: 300px;
   max-height: 300px;
@@ -83,10 +83,21 @@ button img {
 
 button p {
   text-transform: uppercase;
+  font-size: x-large;
 }
 
 .button-push {
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.44);
+}
+
+.turnhover {
+  position: fixed;
+  font-size: 3rem;
+}
+
+strong {
+  text-transform: uppercase;
+  color: rgb(220, 0, 0);
 }
 
 footer {
@@ -94,4 +105,23 @@ footer {
   align-items: center;
   flex-direction: column;
   margin-bottom: 2rem;
+}
+
+img {
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .button-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    width: 80px;
+    height: 80px;
+    font-size: 18px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
 }
