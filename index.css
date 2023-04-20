@@ -13,11 +13,42 @@ html {
   padding: 0;
 }
 
+.btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+  font-size: 21px;
+  color: #fff;
+  background-color: #d62828;
+  padding: 10px 30px;
+  border: solid #d62828 2px;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition: 390ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-transform: lowercase;
+}
+
+.btn:hover {
+  transition: 390ms;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fc0101;
+  color: #ffffff;
+  border: solid 2px #d62828;
+}
+
 main {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 10rem;
+  margin-top: 8rem;
 }
 
 .button-container {
@@ -27,7 +58,7 @@ main {
   gap: 5rem;
 }
 
-button {
+main button {
   border-radius: 50%;
   min-width: 300px;
   min-height: 300px;
@@ -83,7 +114,15 @@ button img {
 
 button p {
   text-transform: uppercase;
-  font-size: x-large;
+  font-size: 6rem;
+}
+
+.choice {
+  font-size: 2rem;
+}
+
+.white {
+  color: aliceblue;
 }
 
 .button-push {
@@ -93,11 +132,21 @@ button p {
 .turnhover {
   position: fixed;
   font-size: 3rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 1px;
+}
+
+h3 {
+  margin: 1px;
 }
 
 strong {
   text-transform: uppercase;
   color: rgb(220, 0, 0);
+  font-size: x-large;
 }
 
 footer {
@@ -107,21 +156,10 @@ footer {
   margin-bottom: 2rem;
 }
 
-img {
-  pointer-events: none;
+footer p {
+  margin: 1px;
 }
 
-@media only screen and (max-width: 600px) {
-  .button-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .button {
-    width: 80px;
-    height: 80px;
-    font-size: 18px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-  }
+img {
+  pointer-events: none;
 }
