@@ -1,3 +1,16 @@
+if (
+  localStorage.getItem(`CA`) === undefined ||
+  localStorage.getItem(`CA`) === null
+) {
+  localStorage.setItem(`CA`, 0);
+}
+
+const turnOverDiv = document.querySelector('.turnhover');
+turnOverDiv.textContent = '';
+turnOverDiv.textContent = `Le chiffre d'affaire est de : ${localStorage.getItem(
+  `CA`
+)}€`;
+
 const arrayPrice = [2, 3, 4, 0, 8, 10, 5];
 const pathOfImg = [
   `<img src="/images/accessoire.png">`,
@@ -35,7 +48,7 @@ function addPriceToChoose() {
       total += parseInt(price);
       const resultButton = document.getElementById('8');
       resultButton.style.fontSize = '7rem';
-      resultButton.innerHTML = `${total} €`;
+      resultButton.innerHTML = `${total} € ${pathOfImg[7]}`;
     } else if (price !== null && price !== '') {
       alert('Veuillez entrer un nombre valide.');
     }
@@ -75,21 +88,28 @@ function displayTotal() {
       alert("Vous n'avez pas d'article");
     } else {
       turnOver.push(parseInt(button.textContent));
-      console.log(turnOver);
       button.textContent = total -= total;
       let turnOverTotal = 0;
       turnOver.forEach(value => {
         turnOverTotal += value;
       });
+      turnOverTotal += parseInt(localStorage.getItem(`CA`));
       const turnOverDiv = document.querySelector('.turnhover');
       turnOverDiv.textContent = '';
-      turnOverDiv.textContent = `Le chiffre d'affaire est de : ${turnOverTotal}€`;
+      localStorage.setItem(`CA`, turnOverTotal);
+      turnOverDiv.textContent = `Le chiffre d'affaire est de : ${localStorage.getItem(
+        `CA`
+      )}€`;
       button.innerHTML = ` 0 € ${pathOfImg[7]}`;
-
+      turnOver = [];
+      // A partir d'ici la fonction repasse le nombre d'articles à 0 et réaffiche les élément correctement.
       numberOfArticles.fill(0);
       const buttons = document.querySelectorAll('button');
       buttons.forEach((button, index) => {
         if (index !== 7 && index !== 3) {
+          if (button.classList.contains('btn')) {
+            return;
+          }
           button.textContent = '0';
           button.innerHTML = `0 ${pathOfImg[index]}`;
           button.style.fontSize = '7rem';
@@ -114,6 +134,32 @@ buttonOnPush.forEach(element => {
   });
 });
 
+function resetInput() {
+  const btn = document.querySelector('.btn');
+  const buttontotal = document.getElementById('8');
+  btn.addEventListener('click', () => {
+    numberOfArticles.fill(0);
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button, index) => {
+      if (index !== 7 && index !== 3) {
+        if (button.classList.contains('btn')) {
+          return;
+        }
+        button.textContent = '0';
+        button.innerHTML = `0 ${pathOfImg[index]}`;
+        button.style.fontSize = '7rem';
+      } else if (index === 3) {
+        button.textContent = '0';
+        button.innerHTML = `Indiquer le prix ${pathOfImg[index]}`;
+        button.style.fontSize = '3rem';
+      } else if (buttontotal) {
+        total = 0;
+        buttontotal.innerHTML = `0 € ${pathOfImg[7]}`;
+      }
+    });
+  });
+}
+
 displayTotal();
 addPriceToChoose();
 addPrice(1, arrayPrice[0]);
@@ -131,6 +177,7 @@ addNumberofArticles(4);
 addNumberofArticles(5);
 addNumberofArticles(6);
 addNumberofArticles(7);
+resetInput();
 
 // - quand tu appuie sur un boutons cele retire l'image TOTAL
 // À prévoir absolument :
@@ -146,3 +193,5 @@ addNumberofArticles(7);
 // 3) basculer sur une version tactile pour iPad.
 
 // 4) devenir richissime et acheter une île dans le Pacifique pour y élever des dinosaures.
+
+// Faire légende en position fixed

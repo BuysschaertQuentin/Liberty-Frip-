@@ -113,12 +113,11 @@ button img {
 }
 
 button p {
-  text-transform: uppercase;
   font-size: 6rem;
 }
 
 .choice {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .white {
