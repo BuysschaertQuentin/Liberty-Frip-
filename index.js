@@ -13,14 +13,14 @@ turnOverDiv.textContent = `Le chiffre d'affaire est de : ${localStorage.getItem(
 
 const arrayPrice = [2, 3, 4, 0, 8, 10, 5];
 const pathOfImg = [
-  `<img src="/images/accessoire.png">`,
-  `<img src="/images/tshirt.png">`,
-  `<img src="/images/jupe.png">`,
-  `<img src="/images/marque.png">`,
-  `<img src="/images/sac.png">`,
-  `<img src="/images/manteau.png">`,
-  `<img src="/images/robe.png">`,
-  `<img src="/images/total.png">`,
+  `<img src="./images/accessoire.png">`,
+  `<img src="./images/tshirt.png">`,
+  `<img src="./images/jupe.png">`,
+  `<img src="./images/marque.png">`,
+  `<img src="./images/sac.png">`,
+  `<img src="./images/manteau.png">`,
+  `<img src="./images/robe.png">`,
+  `<img src="./images/total.png">`,
 ];
 const numberOfArticles = [];
 let total = 0;
