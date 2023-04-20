@@ -107,7 +107,10 @@ function displayTotal() {
       const buttons = document.querySelectorAll('button');
       buttons.forEach((button, index) => {
         if (index !== 7 && index !== 3) {
-          if (button.classList.contains('btn')) {
+          if (
+            button.classList.contains('btn') ||
+            button.classList.contains('dropdown-toggle')
+          ) {
             return;
           }
           button.textContent = '0';
@@ -142,7 +145,10 @@ function resetInput() {
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button, index) => {
       if (index !== 7 && index !== 3) {
-        if (button.classList.contains('btn')) {
+        if (
+          button.classList.contains('btn') ||
+          button.id === 'dropdownMenuButton'
+        ) {
           return;
         }
         button.textContent = '0';
@@ -155,6 +161,7 @@ function resetInput() {
       } else if (buttontotal) {
         total = 0;
         buttontotal.innerHTML = `0 € ${pathOfImg[7]}`;
+        buttontotal.style.fontSize = '6rem';
       }
     });
   });
@@ -179,12 +186,12 @@ addNumberofArticles(6);
 addNumberofArticles(7);
 resetInput();
 
-// - quand tu appuie sur un boutons cele retire l'image TOTAL
-// À prévoir absolument :
+const dropdown = document.querySelector('.dropdown');
+const dropdownMenu = document.querySelector('.dropdown-menu');
 
-// 3) prévoir un bouton "annuler" pour retirer des articles ou des clics excédentaires.
-
-// Pas essentiel / pas pour tout de suite
+dropdown.addEventListener('click', function () {
+  dropdownMenu.classList.toggle('show');
+});
 
 // 1) implémenter un comptage des vêtements dans le détail de la journée OK + display resultat.html
 
