@@ -2,7 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-image: url('/images/bg.svg');
+  background-image: url('./images/bg.svg');
   background-size: cover;
 }
 
