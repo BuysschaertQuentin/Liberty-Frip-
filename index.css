@@ -32,7 +32,7 @@ html {
   flex-direction: row;
   align-items: center;
   cursor: pointer;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 .btn:hover {
@@ -139,7 +139,7 @@ h1 {
 }
 
 h3 {
-  margin: 1px;
+  margin-top: 15px;
 }
 
 strong {
