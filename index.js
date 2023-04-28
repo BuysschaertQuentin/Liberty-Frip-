@@ -41,7 +41,7 @@ function chooseAndAddPrice() {
   button.addEventListener('click', () => {
     price = prompt("Veuillez entrer le prix de l'article");
     if (price !== null && price !== '' && !isNaN(price)) {
-      total += parseInt(price);
+      total += parseFloat(price);
       const resultButton = document.getElementById('8');
       resultButton.style.fontSize = '7rem';
       resultButton.innerHTML = `${total} € ${pathOfImg[7]}`;
@@ -83,13 +83,13 @@ function displayTotalAndResetCounterOfArticles() {
     if (total === 0) {
       alert("Vous n'avez pas d'article");
     } else {
-      turnOver.push(parseInt(button.textContent));
+      turnOver.push(parseFloat(button.textContent));
       button.textContent = total -= total;
       let turnOverTotal = 0;
       turnOver.forEach((value) => {
         turnOverTotal += value;
       });
-      turnOverTotal += parseInt(localStorage.getItem(`CA`));
+      turnOverTotal += parseFloat(localStorage.getItem(`CA`));
       const turnOverDiv = document.querySelector('.turnhover');
       turnOverDiv.textContent = '';
       localStorage.setItem(`CA`, turnOverTotal);
@@ -101,7 +101,11 @@ function displayTotalAndResetCounterOfArticles() {
       const buttons = document.querySelectorAll('button');
       buttons.forEach((button, index) => {
         if (index !== 7 && index !== 3) {
-          if (button.classList.contains('btn') || button.classList.contains('dropdown-toggle')) {
+          if (
+            button.classList.contains('btn') ||
+            button.classList.contains('dropdown-toggle') ||
+            button.classList.contains('btn_bag')
+          ) {
             return;
           }
           button.textContent = '0';
@@ -111,10 +115,6 @@ function displayTotalAndResetCounterOfArticles() {
           button.textContent = '0';
           button.innerHTML = `Indiquer le prix ${pathOfImg[index]}`;
           button.style.fontSize = '3rem';
-        } else if (index === 8) {
-          button.textContent = '';
-          button.innerHTML = `Ajoutez un sac`;
-          button.style.fontSize = '21px';
         }
       });
     }
@@ -140,7 +140,11 @@ function resetInput() {
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button, index) => {
       if (index !== 7 && index !== 3) {
-        if (button.classList.contains('btn') || button.id === 'dropdownMenuButton') {
+        if (
+          button.classList.contains('btn') ||
+          button.id === 'dropdownMenuButton' ||
+          button.classList.contains('btn_bag')
+        ) {
           return;
         }
         button.textContent = '0';
