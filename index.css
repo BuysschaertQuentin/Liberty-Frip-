@@ -44,6 +44,37 @@ html {
   border: solid 2px #d62828;
 }
 
+.btn_bag {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+  font-size: 21px;
+  color: #fff;
+  background-color: rgb(51, 191, 226);
+  padding: 10px 30px;
+  border: solid rgb(51, 191, 226) 2px;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition: 390ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.btn_bag:hover {
+  transition: 390ms;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: rgb(51, 191, 226);
+  color: #ffffff;
+  border: solid 2px rgb(51, 191, 226);
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -165,7 +196,7 @@ img {
 
 .dropdown {
   position: fixed;
-  top: 80px;
+  top: 140px;
   right: 20px;
 }
 

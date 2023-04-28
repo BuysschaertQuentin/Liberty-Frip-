@@ -1,17 +1,13 @@
-if (
-  localStorage.getItem(`CA`) === undefined ||
-  localStorage.getItem(`CA`) === null
-) {
+if (localStorage.getItem(`CA`) === undefined || localStorage.getItem(`CA`) === null) {
   localStorage.setItem(`CA`, 0);
 }
 
 const turnOverDiv = document.querySelector('.turnhover');
 turnOverDiv.textContent = '';
-turnOverDiv.textContent = `Le chiffre d'affaire est de : ${localStorage.getItem(
-  `CA`
-)}€`;
+turnOverDiv.textContent = `Le chiffre d'affaire est de : 
+${localStorage.getItem(`CA`)}€`;
 
-const arrayPrice = [2, 3, 4, 0, 8, 10, 5];
+const arrayPrice = [2, 3, 4, 0, 8, 10, 5, 0, 0.5];
 const pathOfImg = [
   `<img src="./images/accessoire.png">`,
   `<img src="./images/tshirt.png">`,
@@ -40,7 +36,7 @@ function addPrice(id, price) {
   });
 }
 
-function addPriceToChoose() {
+function chooseAndAddPrice() {
   const button = document.querySelector('.marques');
   button.addEventListener('click', () => {
     price = prompt("Veuillez entrer le prix de l'article");
@@ -81,7 +77,7 @@ function addNumberofArticles(id) {
   });
 }
 
-function displayTotal() {
+function displayTotalAndResetCounterOfArticles() {
   const button = document.getElementById('8');
   button.addEventListener('click', () => {
     if (total === 0) {
@@ -90,16 +86,14 @@ function displayTotal() {
       turnOver.push(parseInt(button.textContent));
       button.textContent = total -= total;
       let turnOverTotal = 0;
-      turnOver.forEach(value => {
+      turnOver.forEach((value) => {
         turnOverTotal += value;
       });
       turnOverTotal += parseInt(localStorage.getItem(`CA`));
       const turnOverDiv = document.querySelector('.turnhover');
       turnOverDiv.textContent = '';
       localStorage.setItem(`CA`, turnOverTotal);
-      turnOverDiv.textContent = `Le chiffre d'affaire est de : ${localStorage.getItem(
-        `CA`
-      )}€`;
+      turnOverDiv.textContent = `Le chiffre d'affaire est de : ${localStorage.getItem(`CA`)}€`;
       button.innerHTML = ` 0 € ${pathOfImg[7]}`;
       turnOver = [];
       // A partir d'ici la fonction repasse le nombre d'articles à 0 et réaffiche les élément correctement.
@@ -107,10 +101,7 @@ function displayTotal() {
       const buttons = document.querySelectorAll('button');
       buttons.forEach((button, index) => {
         if (index !== 7 && index !== 3) {
-          if (
-            button.classList.contains('btn') ||
-            button.classList.contains('dropdown-toggle')
-          ) {
+          if (button.classList.contains('btn') || button.classList.contains('dropdown-toggle')) {
             return;
           }
           button.textContent = '0';
@@ -120,6 +111,10 @@ function displayTotal() {
           button.textContent = '0';
           button.innerHTML = `Indiquer le prix ${pathOfImg[index]}`;
           button.style.fontSize = '3rem';
+        } else if (index === 8) {
+          button.textContent = '';
+          button.innerHTML = `Ajoutez un sac`;
+          button.style.fontSize = '21px';
         }
       });
     }
@@ -127,8 +122,8 @@ function displayTotal() {
 }
 
 const buttonOnPush = document.querySelectorAll('button');
-buttonOnPush.forEach(element => {
-  element.addEventListener('click', e => {
+buttonOnPush.forEach((element) => {
+  element.addEventListener('click', (e) => {
     e.preventDefault();
     element.classList.add('button-push');
     setTimeout(() => {
@@ -145,10 +140,7 @@ function resetInput() {
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button, index) => {
       if (index !== 7 && index !== 3) {
-        if (
-          button.classList.contains('btn') ||
-          button.id === 'dropdownMenuButton'
-        ) {
+        if (button.classList.contains('btn') || button.id === 'dropdownMenuButton') {
           return;
         }
         button.textContent = '0';
@@ -158,6 +150,10 @@ function resetInput() {
         button.textContent = '0';
         button.innerHTML = `Indiquer le prix ${pathOfImg[index]}`;
         button.style.fontSize = '3rem';
+      } else if (index === 8) {
+        button.textContent = '';
+        button.innerHTML = `Ajoutez un sac`;
+        button.style.fontSize = '21px';
       } else if (buttontotal) {
         total = 0;
         buttontotal.innerHTML = `0 € ${pathOfImg[7]}`;
@@ -167,8 +163,8 @@ function resetInput() {
   });
 }
 
-displayTotal();
-addPriceToChoose();
+displayTotalAndResetCounterOfArticles();
+chooseAndAddPrice();
 addPrice(1, arrayPrice[0]);
 addPrice(2, arrayPrice[1]);
 addPrice(3, arrayPrice[2]);
@@ -176,6 +172,7 @@ addPrice(4, arrayPrice[3]);
 addPrice(5, arrayPrice[4]);
 addPrice(6, arrayPrice[5]);
 addPrice(7, arrayPrice[6]);
+addPrice(9, arrayPrice[8]);
 
 addNumberofArticles(1);
 addNumberofArticles(2);
@@ -192,13 +189,3 @@ const dropdownMenu = document.querySelector('.dropdown-menu');
 dropdown.addEventListener('click', function () {
   dropdownMenu.classList.toggle('show');
 });
-
-// 1) implémenter un comptage des vêtements dans le détail de la journée OK + display resultat.html
-
-// 2) ajouter une fonction prix cassés (-30% sur le total par exemple)
-
-// 3) basculer sur une version tactile pour iPad.
-
-// 4) devenir richissime et acheter une île dans le Pacifique pour y élever des dinosaures.
-
-// Faire légende en position fixed
