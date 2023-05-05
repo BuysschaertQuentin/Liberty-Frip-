@@ -7,7 +7,7 @@ turnOverDiv.textContent = '';
 turnOverDiv.textContent = `Le chiffre d'affaire est de : 
 ${localStorage.getItem(`CA`)}€`;
 
-const arrayPrice = [2, 3, 4, 0, 8, 10, 5, 0, 0.5];
+const arrayPrice = [2, 3, 4, 0, 8, 10, 5, 0, 1];
 const pathOfImg = [
   `<img src="./images/accessoire.png">`,
   `<img src="./images/tshirt.png">`,
